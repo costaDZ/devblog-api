@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "node --loader ts-node/esm src/index.ts",
+  "ignore": ["*.test.ts"],
+  "delay": "3",
+  "execMap": {
+    "ts": "ts-node"
+  }
+}
