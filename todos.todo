@@ -1,0 +1,5 @@
+1 - Add DB (Mongo DB) using mongoos
+1.1 - add debuging to local + docker compose 
+2 - define the project services
+3 - work on user authantication + authorization service
+4 - work on user CRUD blog operations
