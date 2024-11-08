@@ -1,5 +1,16 @@
-1 - Add DB (Mongo DB) using mongoos
-1.1 - add debuging to local + docker compose 
-2 - define the project services
-3 - work on user authantication + authorization service
-4 - work on user CRUD blog operations
+
+// ✅ TASKS 
+
+- add debuging to local + docker compose 
+- define the project services
+- work on user authantication + authorization service (need testing)
+- Work  on user authantication + authorization UI
+- work on user CRUD blog operations
+
+
+
+// 🔴 ISSUES 
+- check how to avoid using process.env.MONGO_URI as string pattern
+- check the diffrences in tsConfig file for target + moduleResolution
+- research about the current auth flow and check best practises
+- fix the email not received bu the user after he signsup
