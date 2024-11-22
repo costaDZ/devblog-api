@@ -5,6 +5,7 @@ const userSchema = new Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, require: true},
   isVerified: {type: Boolean, require: true},
+  refreshToken: {type: String, require: true, unique: true},
   profileImage: String,
   resetPasswordToken: String,
   resetPasswordExpiresAt: Date,

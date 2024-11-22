@@ -1,6 +1,11 @@
 
 // ✅ TASKS 
 
+ - check and test the hosted APIs on (Render service)
+ - make production + dev env in postam to test
+ - add auto restart on docker container
+ - test the email service crash issue
+
 - add debuging to local + docker compose 
 - define the project services
 - work on user authantication + authorization service (need testing)

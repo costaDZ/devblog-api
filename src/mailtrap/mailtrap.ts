@@ -1,25 +1,28 @@
-import nodemailer from "nodemailer";
+import {MailtrapClient} from "mailtrap";
+import {generateMailHtmlTemplate} from "./mail-html-template";
 
-export const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  secure: false,
-  port: 587,
-  auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
+const client = new MailtrapClient({
+  token: process.env.MAILTRAP_TOKEN as string,
 });
 
-export async function sendVerificationEmail() {
-  const info = await transporter.sendMail({
-    from: "casacasino7@gmail.com",
-    to: ["casacasino7@gmail.com", "nadgmo@gmail.com"],
-    subject: "Verification Account Dev Blog ✔",
-    text: "Verification Account Dev Blog",
-    html: "<b>TEST VERIFICATION ACCOUNT</b>",
-  });
-  console.log("Message sent: %s", info.messageId);
+const sender = {
+  email: "hello@demomailtrap.com",
+  name: "Mailtrap Test",
+};
+
+export async function sendVerificationEmail(recipient: string, verificationToken: string) {
+  client
+    .send({
+      from: sender,
+      to: [
+        {
+          email: recipient,
+        },
+      ],
+      subject: "Verification Account Dev Blog ✔",
+      text: "Verification Account Dev Blog. Please verify your email address.",
+      html: generateMailHtmlTemplate(verificationToken), // Add the HTML here
+      category: "Integration Test",
+    })
+    .then(console.log, console.error);
 }

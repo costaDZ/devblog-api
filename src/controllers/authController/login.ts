@@ -29,10 +29,20 @@ export const login = async (req: Request, res: Response) => {
       return;
     }
 
-    const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET as string, {expiresIn: "7d"});
+    const accessToken = jwt.sign({userId: user._id}, process.env.JWT_SECRET as string, {
+      expiresIn: "1h",
+    });
+
+    const refreshToken = jwt.sign({userId: user._id}, process.env.JWT_SECRET as string, {
+      expiresIn: "7d",
+    });
+
+    user.refreshToken = refreshToken;
+    await user.save();
 
     res.status(200).json({
-      token,
+      accessToken,
+      refreshToken,
       user: {
         id: user._id,
         name: user.name,
