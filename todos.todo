@@ -2,10 +2,12 @@
 // ✅ TASKS 
 
  - ✅ check and test the hosted APIs on (Render service)
- - ✅ make production + dev env in postam to test
+ - ✅ make production + dev env in postamn to test
  - ✅ test the email service crash issue
  -  add auto restart on docker container
 
+
+[[CLIENT]]
 - 🟠 Set up the client side project
 - add debuging to local + docker compose 
 - define the project services
@@ -14,7 +16,7 @@
 - work on user CRUD blog operations
 
 
-
+[[SERVER]]
 // 🔴 ISSUES 
 - check how to avoid using process.env.MONGO_URI as string pattern
 - check the diffrences in tsConfig file for target + moduleResolution
