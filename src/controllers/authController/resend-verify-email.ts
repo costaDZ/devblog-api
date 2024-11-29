@@ -24,7 +24,12 @@ export const resendVerifyEmail = async (req: Request, res: Response) => {
   user.verificationToken = token;
   user.verificationTokenExpiresAt = expirationDate;
 
-  await sendVerificationEmail(email, token);
+  try {
+    await sendVerificationEmail(email, token);
+  } catch (error) {
+    res.status(500).send("Sending verification Email failed");
+    return;
+  }
 
   res.send("Verification email sent.");
 };

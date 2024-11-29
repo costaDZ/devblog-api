@@ -5,6 +5,7 @@ const client = new MailtrapClient({
   token: process.env.MAILTRAP_TOKEN as string,
 });
 
+// TODO: change this in PROD
 const sender = {
   email: "hello@demomailtrap.com",
   name: "Mailtrap Test",
